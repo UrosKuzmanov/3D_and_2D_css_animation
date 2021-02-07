@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+
+          /*---------------------------------------------------Assignment---------------------------------------------------------------*/
+
+
+        @keyframes animation_za_krug_sa_vise_boja {          /*  animacija za krug sa vise boja*/
+            0% {
+                transform:  rotate(0deg );
+                
+            }
+            100% {
+
+                transform:  rotate(360deg);
+               
+            }
+        }                               /*kraj animacije  za krug sa vise boja*/
+
+
+        @keyframes za_cetvrti {             /*animacija za krug u sredini*/
+            0%{
+                transform: translate(150px, 150px) scale(0, 0); 
+            }
+            100%{
+                transform: translate(150px, 150px) scale(10, 10);   
+            }
+        }
+
+        @keyframes za_treci {
+            0%{
+                transform: translate(150px, 150px) scale(0, 0);  
+            }
+            50%{
+                transform: translate(150px, 150px) scale(10, 10);
+            }
+            100%{
+                transform: translate(150px, 150px) scale(17, 17);
+            }
+        }
+
+        @keyframes za_peti {
+            0%{
+                transform: translate(150px, 150px) scale(0, 0);   
+            }
+            50%{
+                transform: translate(150px, 150px) scale(10, 10);
+            }
+            100%{
+                transform: translate(150px, 150px) scale(17, 17);
+                }
+            }  
+                                            /* kraj animacije za krug u sredini*/
+        #wrapper{
+            perspective: 700px;
+            height: 800px;
+            width: 800px;
+            padding: 200px;
+            box-sizing: border-box;
+            background: #050210;
+            margin: 100px auto;
+        }
+
+        #prvi{                          /* stilizacija prvog div-a za krug sa vise boja*/
+            background-color: aqua;
+            height: 400px;
+            width: 400px;
+            padding: 40px;
+            box-sizing: border-box;
+            border-radius: 100%;
+            box-shadow: 0px -20px 90px -20px #fb5dad, -20px 0 90px -20px #55fb9f, 20px 0 90px -20px #55fb9f, 0px 20px 90px -20px  #b97aff;
+            background: linear-gradient( #fb5dad,  #55fb9f, #b97aff ); 
+            transform-origin: 50% 50%;
+           
+        }
+        #prvi{
+            animation-name: animation_za_krug_sa_vise_boja;
+            animation-duration: 1s;
+            animation-iteration-count: infinite;
+            animation-timing-function: linear;
+        }                           /*kraj stilizacije prvog div-a za krug sa vise boja*/
+       
+        #drugi{                     /*stilizacija drugog diva za crnu pozadinu unutar kruga*/
+            height: 320px;
+            width: 320px;
+            position: relative;
+            background: black ;
+            border-radius: 100%;
+        }                               /* kraj stilizacije drugog diva za crnu pozadinu unutar kruga*/
+
+           
+        #cetvrti,#treci, #peti{     /*stilizacija  divova  za animaciju unutar kruga drugog diva*/
+            position: absolute;
+            border-radius: 100%;
+            height: 20px;
+            width: 20px;
+            transform: translate(150px, 150px) ;
+            background-color: rgb(51 5 82 / 50%);
+            filter: blur(1px);
+        }
+
+        #peti{
+            animation-name: za_peti;
+            animation-duration: 2s;
+            animation-iteration-count: infinite;
+            animation-timing-function: ease-out;
+            animation-delay: 1s;
+        }
+            
+        #cetvrti{
+            animation-name: za_cetvrti;
+            animation-duration: 1s;
+            animation-iteration-count: infinite;
+            animation-timing-function:linear;
+       
+        }
+        #treci{
+            animation-name: za_treci;
+            animation-duration: 2s;
+            animation-iteration-count: infinite;
+            animation-timing-function: ease-out;
+        }                       /* kraj stilizacije  divova  za animaciju unutar kruga drugog diva*/
+
+
+
+        /*---------------------------------------------------Assignment kraj---------------------------------------------------------------*/
+
+
+
+
+        /*--------------------------------------------------Dodatno-------------------------------------------------------------------*/
+
+
+
+        body{
+            perspective: 700px;
+        }                               /*stilizacija i animacija za plavu kocku*/
+        #wrapper_kocka_plava{
+            transform-style: preserve-3d;
+            position: relative;
+            margin:0;
+            height: 200px;
+            width: 200px;
+            perspective: 700px;
+            top: -200px;
+            left: -216px;
+            
+
+        }
+       
+        .strana_kocke_pl{
+            width: 30px;
+            height: 30px;
+            border: 1px solid blue;
+            position: absolute;
+            left: 85px;
+            top: 85px;
+            background: slateblue;
+            box-shadow: 0 0 30px 1px blue;
+        }
+
+        #b{
+            transform: rotateY(90deg);
+            transform-origin: 100% 0%;
+        }
+        #c{
+            transform: translateZ(32px);
+        }
+
+        #d{
+            transform: rotateY(-90deg);
+            transform-origin: 0% 0%;
+        }
+        #e{
+            transform: rotateX(90deg);
+            transform-origin: 0% 0%;
+
+        }
+        #f{
+            transform: rotateX(-90deg);
+            transform-origin: 100% 100%;
+
+        }                           
+
+
+    @keyframes za_kockicu_pl {
+            0%{
+                transform: rotate3d(0, 0, 1, 0deg);
+            }
+            100%{
+                transform: rotate3d(0, 0, 1, 360deg);
+            }
+    }
+
+    #wrapper_kocka_plava{
+            animation-name: za_kockicu_pl;
+            animation-duration: 5s;
+            animation-iteration-count: infinite;
+            animation-timing-function: linear;
+
+    }                                                           /* kraj stilizacije i animacije za plavu kocku*/
+
+
+
+    #wrapper_kocka_zelena1{                 /*stilizacija i animacija za donju zelenu kockicu*/
+        transform-style: preserve-3d;
+            position: relative;
+            margin:0;
+            height: 200px;
+            width: 200px;
+            perspective: 700px;
+            top: -380px;
+            left: 209px;
+            
+
+        }
+       
+    .strana_zelena{
+        
+        width: 30px;
+        height: 30px;
+        border: 1px solid rgb(21, 255, 0);
+        position: absolute;
+        left: 85px;
+        top: 85px;
+        background: rgb(40 78 17);
+        box-shadow: 0 0 30px 1px rgb(21, 255, 0);
+    }
+
+    #bb{
+        transform: rotateY(90deg);
+        transform-origin: 100% 0%;
+    }
+    #cc{
+        transform: translateZ(32px);
+    }
+
+    #dd{
+        transform: rotateY(-90deg);
+        transform-origin: 0% 0%;
+    }
+    #ee{
+        transform: rotateX(90deg);
+        transform-origin: 0% 0%;
+
+    }
+    #ff{
+        transform: rotateX(-90deg);
+        transform-origin: 100% 100%;
+
+    }
+    @keyframes za_kockicu_zelenu1 {
+            0%{transform: translate(0px, -20px) rotateZ(0);}
+            10%{transform: translate( 30px, 0px) rotateZ(30deg);}
+            20%{transform: translate(60px, 16px)rotateZ(60deg);}
+            30%{transform: translate(85px, 0px) rotateZ(120deg);}
+            40%{transform: translate(105px, 14px)rotateZ(180deg);}
+            50%{transform: translate(120px, 0px) rotateZ(200deg);}
+            60%{transform: translate(130px, 8px) rotateZ(180deg);;}
+            70%{transform: translate(139px, 0px)rotateZ(185deg);}
+            80%{transform: translate(149px, 4px)rotateZ(180deg);}
+            90%{transform: translate(158px, 1px)rotateZ(185deg);}
+            100%{transform: translate(165px, 0px)rotateZ(180deg);}
+       
+    }
+    #wrapper_kocka_zelena1{
+        animation-name: za_kockicu_zelenu1;
+        animation-duration: 5s;
+        animation-iteration-count: infinite;
+        animation-timing-function: linear;
+        
+    }                                                   /* kraj stilizacije i animacije za donju zelenu kockicu*/
+
+    #wrapper_za_pomeranje_po_z_osi{                     /* stilizacija i animacija za gornju zelenu kockicu*/
+        
+        transform-style: preserve-3d;   
+        position: relative;
+        margin:0;
+        height: 200px;
+        width: 200px;
+        perspective: 700px;
+        top: -593px;
+        left: 359px;
+           
+            
+            
+    
+    }
+    #wrapper_za_pomeranje_po_z_osi{
+        
+        animation-name: za_kockicu_po_z_osi;
+        animation-duration: 10s;
+        animation-iteration-count: infinite;
+        animation-timing-function: ease-in-out;
+        
+    }
+
+
+
+
+
+    #wrapper_kocka_zelena2{
+        transform-style: preserve-3d;
+            
+            position: absolute;
+            margin:0;
+            height: 200px;
+            width: 200px;
+            perspective: 700px;
+            top: -0px;
+            left:0px;
+           
+            
+            
+    }
+    #wrapper_kocka_zelena2{
+        transform-origin:0px 100px 15px;
+        animation-name: za_kockicu_zelenu2;
+            animation-duration: 10s;
+            animation-iteration-count: infinite;
+            animation-timing-function: ease-in-out;
+        
+    }
+
+    
+
+
+
+    @keyframes za_kockicu_zelenu2 {
+        0%{transform: rotatex(0deg);}
+        10%{transform: rotatex(180deg);}
+        20%{transform: rotatex(360deg);}
+        30%{transform: rotatex(540deg);}
+        40%{transform: rotatex(720deg);}
+        50%{transform: rotatex(900deg);}
+        60%{transform: rotatex(720deg);}
+        70%{transform: rotatex(540deg);}
+        80%{transform: rotatex(360deg);}
+        90%{transform: rotatex(180deg);}
+        100%{transform: rotatex(0deg);}
+  
+    }
+
+    @keyframes za_kockicu_po_z_osi {
+        0%{transform: translateZ(-0px);}
+        10%{transform: translateZ(-60px);}
+        20%{transform: translateZ(-120px);}
+        30%{transform: translateZ(-180px);}
+        40%{transform: translateZ(-240px);}
+        50%{transform: translateZ(-300px);}
+        60%{transform: translateZ(-240px);}
+        70%{transform: translateZ(-180px);}
+        80%{transform: translateZ(-120px);}
+        90%{transform: translateZ(-60px);}
+        100%{transform: translateZ(-0px);}
+   
+    }                                                       /* kraj stilizacij i animacije za gornju zelenu kockicu*/
+        
+    
+         /*----------------------------------------------kraj dodatnog-------------------------------------------*/
+            
+
+          
+
+         
+    </style>
+
+
+
+</head>
+<body>
+
+    <div id="wrapper">
+
+
+                     <!-------------------------------------------Assignment------------------------------------------->
+        <div id="prvi">      <!-- div za krug sa vise boja-->          
+           
+            <div id="drugi">        <!-- div za krug u sredini crni-->    
+                <div id="treci"></div> 
+                <div id="cetvrti"></div><!-- divovi za animaciju u sredini crnog kruga--> 
+                <div id="peti"></div>
+            </div>
+
+        </div>      <!------------------------------------------- end of Assignment------------------------------------------->
+
+
+                    <!------------------------------------------- Dodatno------------------------------------------->
+
+        <div id="wrapper_za_pomeranje_po_z_osi">    <!-- gornja zelena-->
+
+            <div id="wrapper_kocka_zelena2">
+                <div class="strana_zelena" id="aa"></div>
+                <div class="strana_zelena" id="bb"></div>
+                <div class="strana_zelena" id="cc"></div>
+                <div class="strana_zelena" id="dd"></div>
+                <div class="strana_zelena" id="ee"></div>
+                <div class="strana_zelena" id="ff"></div>
+            </div>
+
+        </div>
+
+
+        <div id="wrapper_kocka_plava">      <!-- plava-->
+            
+            <div class="strana_kocke_pl" id="a"></div>
+            <div class="strana_kocke_pl" id="b"></div>
+            <div class="strana_kocke_pl" id="c"></div>
+            <div class="strana_kocke_pl" id="d"></div>
+            <div class="strana_kocke_pl" id="e"></div>
+            <div class="strana_kocke_pl" id="f"></div>
+            
+        </div>
+
+
+        <div id="wrapper_kocka_zelena1">        <!-- donja zelena-->
+            
+            <div class="strana_zelena" id="aa"></div>
+                <div class="strana_zelena" id="bb"></div>
+                <div class="strana_zelena" id="cc"></div>
+                <div class="strana_zelena" id="dd"></div>
+                <div class="strana_zelena" id="ee"></div>
+                <div class="strana_zelena" id="ff"></div>
+            </div>
+
+        </div>
+ 
+    </div>  <!-- end of wrapper-->
+</body>
+</html>
+
+
